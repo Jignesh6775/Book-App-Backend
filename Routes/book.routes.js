@@ -55,9 +55,8 @@ bookRouter.post("/add", async(req, res)=>{
 
 //Deleting Book from database
 bookRouter.delete("/delete/:id", async(req, res) =>{
-    const {id} = req.params.id
     try {
-        await BookModel.findByIdAndDelete({ _id: id })
+        await BookModel.findByIdAndDelete({ _id: req.params.id })
         res.status(200).send({ "msg": "A New Book Has Been Deleted" })
     } catch (err) {
         res.status(400).send({ "msg": err.message })
