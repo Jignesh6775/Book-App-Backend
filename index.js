@@ -2,9 +2,10 @@ const express = require("express")
 const { connection } = require("./Connections/db")
 const { bookRouter } = require("./Routes/book.routes")
 require("dotenv").config()
+const cors = require("cors")
 const port = process.env.PORT || 8080
 const app = express()
-
+app.use(cors())
 app.use(express.json())
 
 app.use("/books", bookRouter)
