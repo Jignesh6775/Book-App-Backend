@@ -7,10 +7,6 @@ const app = express()
 
 app.use(express.json())
 
-app.use("/", (req, res)=>{
-    res.status(200).send({ "msg": "Please Check /books route" })
-})
-
 app.use("/books", bookRouter)
 
 
